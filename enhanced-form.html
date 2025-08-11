@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Enhanced HTML5 Content & Mastering Forms</title>
+  <style>
+    /* General page styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f0f0f0;
+      color: #333;
+      line-height: 1.5;
+    }
+  
+    header {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+    }
+  
+    header nav a {
+      color: white;
+      text-decoration: none;
+      margin-right: 15px;
+    }
+  
+    header nav a:hover {
+      text-decoration: underline;
+    }
+  
+    main {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 10px;
+    }
+  
+    .card {
+      background-color: white;
+      padding: 15px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+    }
+  
+    h2, h3, h4 {
+      color: #444;
+    }
+  
+    /* Table styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+  
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+  
+    thead {
+      background-color: #f9f9f9;
+    }
+  
+    /* Form styling */
+    form {
+      display: grid;
+      gap: 15px;
+    }
+  
+    fieldset {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+  
+    legend {
+      font-weight: bold;
+    }
+  
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+  
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  
+    input:focus, select:focus, textarea:focus {
+      border-color: #4CAF50;
+      outline: none;
+    }
+  
+    button {
+      padding: 10px 15px;
+      border: none;
+      color: white;
+      background-color: #4CAF50;
+      cursor: pointer;
+    }
+  
+    button:hover {
+      background-color: #45a049;
+    }
+  
+    .actions {
+      display: flex;
+      gap: 10px;
+    }
+  
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #333;
+      color: white;
+      margin-top: 20px;
+    }
+  </style>
+  
+</head>
+<body>
+  <header>
+    <div class="wrap mast" role="navigation" aria-label="Primary">
+      <div class="logo" aria-label="Site brand">
+        <div class="badge" aria-hidden="true">H5</div>
+        <strong>HTML5 Content & Forms</strong>
+      </div>
+      <nav aria-label="Sections">
+        <a href="#content">Content</a>
+        <a href="#media">Media</a>
+        <a href="#form">Form</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <article class="grid" id="content">
+      <section class="card" aria-labelledby="sec-overview">
+        <h2 id="sec-overview">Structured Content</h2>
+        <p class="muted">Demonstration of semantic HTML: headings, lists, tables, and descriptive media with accessible markup.</p>
+
+        <h3>Course Topics (List Examples)</h3>
+        <div class="row">
+          <div>
+            <h4>Unordered List</h4>
+            <ul>
+              <li>Semantic layout with <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code></li>
+              <li>Accessible forms with labels and fieldsets</li>
+              <li>Native validation (no JavaScript)</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Ordered List</h4>
+            <ol>
+              <li>Sketch content outline</li>
+              <li>Build media section</li>
+              <li>Implement and test form</li>
+            </ol>
+          </div>
+        </div>
+
+        <h4>Definitions (Description List)</h4>
+        <dl>
+          <dt>ARIA</dt>
+          <dd>Attributes that improve accessibility for assistive technologies.</dd>
+          <dt>Constraint Validation</dt>
+          <dd>Browser-native form validation using attributes like <code>required</code>, <code>pattern</code>, <code>minlength</code>.</dd>
+          <dt>Semantic Elements</dt>
+          <dd>Tags that convey meaning (e.g., <code>&lt;article&gt;</code>, <code>&lt;nav&gt;</code>), improving structure and accessibility.</dd>
+        </dl>
+
+        <h3>Sample Schedule (Table)</h3>
+        <figure role="group" aria-labelledby="tbl-caption">
+          <table>
+            <caption id="tbl-caption">Weekly Modules</caption>
+            <thead>
+              <tr>
+                <th scope="col">Week</th>
+                <th scope="col">Topic</th>
+                <th scope="col">Focus</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>HTML5 Layout</td>
+                <td>Semantic structure</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Media</td>
+                <td>Images &amp; captions</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Forms</td>
+                <td>Validation &amp; UX</td>
+              </tr>
+            </tbody>
+          </table>
+          <figcaption class="muted">Table uses <code>&lt;caption&gt;</code>, scoped headers, and a logical reading order.</figcaption>
+        </figure>
+      </section>
+
+      <aside class="card" id="media" aria-labelledby="sec-media">
+        <h2 id="sec-media">Media</h2>
+        <figure>
+          <picture>
+            <!-- Example of responsive image; same data URI used for all sources to keep file self‑contained -->
+            <source media="(min-width: 800px)" srcset="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='450'><rect width='100%25' height='100%25' fill='%2306b6d4'/><text x='50%25' y='52%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-size='36' fill='white'>Responsive Image 800x450</text></svg>">
+            <img alt="Decorative gradient tile with text 'Responsive Image'" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='338'><defs><linearGradient id='g' x1='0' x2='1'><stop offset='0' stop-color='%2322c55e'/><stop offset='1' stop-color='%2306b6d4'/></linearGradient></defs><rect width='100%25' height='100%25' fill='url(%23g)'/><text x='50%25' y='52%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui' font-size='28' fill='white'>Responsive Image 600x338</text></svg>">
+          </picture>
+          <figcaption class="muted">Image embedded with <code>&lt;picture&gt;</code> for responsive behavior and <code>&lt;figcaption&gt;</code> for context.</figcaption>
+        </figure>
+
+        <figure>
+          <audio controls preload="none" aria-label="Sample audio clip">
+            <!-- Small silent WAV tone synthesized as a data URI (44 bytes silence) -->
+            <source type="audio/wav" src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAAAAAAAD///8=">
+            Your browser does not support the audio element.
+          </audio>
+           </figure>
+      </aside>
+    </article>
+
+    <hr style="border:0;border-top:1px solid #1f2937; margin:2rem 0" />
+
+    <article id="form" class="card" aria-labelledby="sec-form">
+      <h2 id="sec-form">Registration Form (Native HTML5 Validation)</h2>
+      <p class="muted">Required fields are marked with <span class="req" aria-hidden="true">*</span>.</p>
+
+      <form action="#" method="post" autocomplete="on" aria-describedby="form-help">
+        <p id="form-help" class="visually-hidden">Form uses labels, fieldsets, and required/constraint attributes. Errors are shown by the browser when submitting.</p>
+
+        <fieldset>
+          <legend>Personal Details</legend>
+          <div class="row">
+            <div>
+              <label for="name">Full Name <span class="req" title="This field is required" aria-hidden="true">*</span></label>
+              <input id="name" name="name" type="text" placeholder="Jane Doe" autocomplete="name" required minlength="2" maxlength="60" />
+              <p class="hint">Enter your legal name (2–60 characters).</p>
+            </div>
+            <div>
+              <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input id="email" name="email" type="email" placeholder="jane@example.com" autocomplete="email" required />
+              <p class="hint">Must be a valid email address.</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="tel">Phone (Uganda) <span class="req" aria-hidden="true">*</span></label>
+              <input
+                id="tel"
+                name="tel"
+                type="tel"
+                placeholder="+256712345678 or 0712345678"
+                autocomplete="tel"
+                required
+                pattern="^(?:\+?256|0)([17]\d{8})$"
+                title="Enter a Kenyan number like +254712345678 or 0712345678" />
+              <p class="hint">Accepts formats starting with <code>+256</code> or <code>0</code>, then a 10‑digit MTN/Airtel pattern.</p>
+            </div>
+            <div>
+              <label for="dob">Date of Birth <span class="req" aria-hidden="true">*</span></label>
+              <input id="dob" name="dob" type="date" required />
+              <p class="hint">Use the date picker.</p>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Account Preferences</legend>
+          <div class="row">
+            <div>
+              <label for="username">Username <span class="req" aria-hidden="true">*</span></label>
+              <input id="username" name="username" type="text" placeholder="jane_doe" required minlength="4" maxlength="20" pattern="^[a-zA-Z0-9_]{4,20}$" title="4–20 letters, numbers, or underscores." />
+              <p class="hint">Allowed: letters, numbers, underscore.</p>
+            </div>
+            <div>
+              <label for="password">Password <span class="req" aria-hidden="true">*</span></label>
+              <input id="password" name="password" type="password" required minlength="8" placeholder="At least 8 characters" autocomplete="new-password" />
+              <p class="hint">Minimum 8 characters.</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="website">Portfolio URL</label>
+              <input id="website" name="website" type="url" placeholder="https://example.com" inputmode="url" />
+              <p class="hint">Optional; must be a valid URL if provided.</p>
+            </div>
+            <div>
+              <label for="favcolor">Favorite Color</label>
+              <input id="favcolor" name="favcolor" type="color" value="#22c55e" />
+              <p class="hint">Pick any color.</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="experience">Experience (years)</label>
+              <input id="experience" name="experience" type="number" min="0" max="40" step="1" value="0" />
+              <p class="hint">0 to 40 years.</p>
+            </div>
+            <div>
+              <label for="proficiency">Proficiency (1–10)</label>
+              <input id="proficiency" name="proficiency" type="range" min="1" max="10" value="5" />
+              <p class="hint" aria-live="polite">Slide to choose.</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="role">Role <span class="req" aria-hidden="true">*</span></label>
+              <select id="role" name="role" required>
+                <option value="" selected disabled>Choose a role…</option>
+                <option>Student</option>
+                <option>Educator</option>
+                <option>Developer</option>
+              </select>
+              <p class="hint">Select one option.</p>
+            </div>
+
+            <div>
+              <label for="country">Country (with suggestions)</label>
+              <input id="country" name="country" list="countries" placeholder="Start typing…" />
+              <datalist id="countries">
+                <option value="Kenya"></option>
+                <option value="Uganda"></option>
+                <option value="Tanzania"></option>
+                <option value="Rwanda"></option>
+              </datalist>
+              <p class="hint">Free text; suggestions provided.</p>
+            </div>
+          </div>
+
+          <div class="inline" role="group" aria-label="Communication preferences">
+            <div>
+              <input id="news" name="news" type="checkbox" checked />
+              <label for="news">Email me updates</label>
+            </div>
+            <div>
+              <input id="sms" name="sms" type="checkbox" />
+              <label for="sms">SMS notifications</label>
+            </div>
+          </div>
+
+          <fieldset>
+            <legend>Contact Method (Required)</legend>
+            <div class="inline">
+              <div>
+                <input id="contact-email" name="contact" type="radio" value="email" required />
+                <label for="contact-email">Email</label>
+              </div>
+              <div>
+                <input id="contact-phone" name="contact" type="radio" value="phone" />
+                <label for="contact-phone">Phone</label>
+              </div>
+            </div>
+          </fieldset>
+        </fieldset>
+
+        <fieldset>
+          <legend>Attachments & Notes</legend>
+          <div class="row">
+            <div>
+              <label for="avatar">Profile Photo</label>
+              <input id="avatar" name="avatar" type="file" accept="image/*" />
+              <p class="hint">Accepts images only.</p>
+            </div>
+            <div>
+              <label for="refcode">Referral Code (Read-only)</label>
+              <input id="refcode" name="refcode" type="text" value="SPRING-2025" readonly />
+              <p class="hint">Provided by the system.</p>
+            </div>
+          </div>
+
+          <label for="bio">Short Bio</label>
+          <textarea id="bio" name="bio" rows="5" spellcheck="true" minlength="30" maxlength="300" placeholder="Tell us about yourself (30–300 chars)…"></textarea>
+          <p class="hint">Use at least 30 characters.</p>
+        </fieldset>
+
+        <div class="actions">
+          <button class="primary" type="submit">Submit</button>
+          <button class="ghost" type="reset">Reset</button>
+        </div>
+
+        <p class="muted">By submitting, you agree to our <a href="#" aria-label="Terms (opens placeholder)">Terms</a>.</p>
+      </form>
+    </article>
+  </main>
+
+  <footer class="wrap" role="contentinfo">
+    <p>Lewo Tech</p>
+  </footer>
+</body>
+</html>
